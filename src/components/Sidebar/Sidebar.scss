@@ -1,0 +1,57 @@
+@import "../../variables";
+
+.side-bar {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem 0;
+  position: relative;
+
+  .button-component.-calltoaction {
+    position: absolute;
+    bottom: -1.5rem;
+    left: 5.5rem;
+    line-height: 40px;
+    font-size: 1.5rem;
+    padding: 8px 48px;
+  }
+
+  .button-component:not(.-calltoaction) {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: initial;
+    padding: 1rem 2rem;
+    width: 100%;
+    font-family: $body-font;
+    font-weight: 400;
+
+    > .logo {
+      width: 48px;
+      height: 48px;
+      overflow: hidden;
+      border-radius: 3rem;
+      background: aqua;
+      color: white;
+      line-height: 48px;
+    }
+
+    > .logo .-internia-icon {
+      width: 100%;
+      transform: scale(2);
+    }
+
+    > .name {
+      margin-left: 1rem;
+      font-size: 1.2rem;
+      color: $black-tint;
+    }
+  }
+
+  .section .title {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: hsl(246, 10, 81);
+    padding: 1rem 2rem;
+  }
+}

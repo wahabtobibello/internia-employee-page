@@ -1,0 +1,24 @@
+@import "../../variables";
+
+.app-content {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-column-gap: 1.5rem;
+  padding: 0 2rem 4rem;
+
+  //> h1, > .button-component {
+  //  font-family: $display-font;
+  //}
+
+  > h1 {
+    align-self: center;
+    justify-self: start;
+    padding-left: 2rem;
+  }
+
+  > .button-component {
+    align-self: center;
+    justify-self: end;
+  }
+}
