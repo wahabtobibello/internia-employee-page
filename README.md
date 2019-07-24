@@ -1,3 +1,6 @@
+# internia-employee-page
+React.js implementation of https://dribbble.com/shots/6131920-Employee-page/attachments/1315161
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
