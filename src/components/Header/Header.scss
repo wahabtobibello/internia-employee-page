@@ -1,0 +1,63 @@
+@import "../../variables";
+
+.app-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-auto-flow: column;
+  align-items: center;
+  grid-gap: 0.75rem;
+  justify-content: space-between;
+  background: white;
+  padding: 0 2rem;
+
+  > *:not(.nav-bar) {
+    padding: 1rem 0;
+  }
+
+  > .logo {
+    width: 200px;
+  }
+
+  > .nav-bar {
+    height: 100%;
+  }
+}
+
+.nav-bar {
+  > .list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+  }
+
+  > .list > .item {
+    height: inherit;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    color: $blue-dull;
+
+    &:hover {
+      color: $black;
+    }
+
+    &.-active {
+      color: $black;
+      position: relative;
+
+      &::after {
+        content: '';
+        display: inline-block;
+        width: calc(100% - 40px);
+        height: 4px;
+        border-radius: 2rem;
+        background: $primary-color;
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+      }
+    }
+  }
+
+}

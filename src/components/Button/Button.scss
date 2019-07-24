@@ -1,0 +1,49 @@
+@import "../../variables";
+
+.button-component {
+  display: inline-block;
+  padding: 8px 32px;
+  border-radius: 4rem;
+  background: none;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 24px;
+  font-family: $display-font;
+  color: $purple-light-2;
+  outline: 0;
+  border: 0;
+
+  &:hover {
+    background: $purple-tint;
+  }
+
+  &.-primary{
+    background: $primary-color;
+    color: white;
+    &.-accent{
+      background: $accent-color;
+    }
+  }
+
+  &.-icon {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+
+    > svg {
+      width: 70%;
+      height: inherit;
+    }
+  }
+
+  &.-image {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+
+    > img {
+      width: 100%;
+      border-radius: inherit;
+    }
+  }
+}
