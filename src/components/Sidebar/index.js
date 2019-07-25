@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './Sidebar.scss';
 import Chance from 'chance';
 import Button from '../Button';
@@ -81,4 +81,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default memo(Sidebar);

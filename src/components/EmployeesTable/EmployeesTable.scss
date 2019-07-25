@@ -14,6 +14,10 @@
     justify-content: flex-start;
     align-items: center;
 
+    &:not(:last-child) {
+      cursor: pointer;
+    }
+
     .name {
       text-transform: uppercase;
       color: $black;
@@ -76,6 +80,7 @@
   > tr > td.select {
     padding: 0;
     align-items: center;
+    cursor: pointer;
   }
 
   > tr > td:not(.select) {

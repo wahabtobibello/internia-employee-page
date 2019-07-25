@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import './App.scss';
 import Chance from 'chance';
 import uuid from 'uuid/v4';
@@ -7,7 +7,7 @@ import Main from './components/Main';
 import { AppContext } from './contexts';
 
 const chance = new Chance();
-const employees = Array.from({ length: 10 }).map(() => ({
+const employees = Array.from({ length: 10 }).map((_, index) => ({
   id: uuid(),
   name: chance.name(),
   designation: chance.profession(),
@@ -26,11 +26,39 @@ const employees = Array.from({ length: 10 }).map(() => ({
     const months = chance.integer({ min: 1, max: 12 });
     return yearOrMonth > 0 ? `${years} year(s)` : `${months} month(s)`;
   })(),
+  image_url: `http://lorempixel.com/100/100/people/${index + 1}`,
 }));
+
+const initialState = {
+  employees,
+  sort: null,
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'SORT_BY':
+      return {
+        ...state,
+        employees: state.employees.sort((a, b) => {
+          if (!a[action.field] || !b[action.field]) return 0;
+          if (a[action.field] > b[action.field]) {
+            return action.order === 'down' ? -1 : 1;
+          }
+          if (a[action.field] < b[action.field]) {
+            return action.order === 'down' ? 1 : -1;
+          }
+          return 0;
+        }),
+        sort: [action.field, action.order],
+      };
+    default:
+      return state;
+  }
+};
 
 function App() {
   return (
-    <AppContext.Provider value={{ employees }}>
+    <AppContext.Provider value={useReducer(reducer, initialState)}>
       <div className="app-container">
         <Header />
         <Main />
