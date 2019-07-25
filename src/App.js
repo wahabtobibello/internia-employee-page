@@ -4,8 +4,8 @@ import Chance from 'chance';
 import uuid from 'uuid/v4';
 import Header from './components/Header';
 import Main from './components/Main';
+import { AppContext } from './contexts';
 
-export const AppContext = React.createContext();
 const chance = new Chance();
 const employees = Array.from({ length: 10 }).map(() => ({
   id: uuid(),
@@ -27,7 +27,6 @@ const employees = Array.from({ length: 10 }).map(() => ({
     return yearOrMonth > 0 ? `${years} year(s)` : `${months} month(s)`;
   })(),
 }));
-console.log(employees);
 
 function App() {
   return (
