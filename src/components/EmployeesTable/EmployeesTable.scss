@@ -1,18 +1,22 @@
 @import "../../variables";
 
-.employees-table {
+.employees-table > tbody {
   display: flex;
   flex-direction: column;
 
   > * {
     display: grid;
-    grid-template-columns: auto 256px 192px 192px 1fr;
+    grid-template-columns: auto minmax(320px, 1fr) minmax(192px, 1fr) minmax(192px, 1fr) 1fr;
   }
 
-  > th > td {
+  > tr > th {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    &:not(:last-child) {
+      cursor: pointer;
+    }
 
     .name {
       text-transform: uppercase;
@@ -36,23 +40,33 @@
     }
   }
 
-  > th {
+  > tr:first-child {
     padding: 0 1.5rem;
   }
 
-  > th > td.employee {
+  > tr > th.employee {
     margin-left: calc(48px + 2.5rem);
   }
 
-  > th > td ~ td:not(.employee) {
+  > tr > th ~ th:not(.employee) {
     margin-left: 1.5rem;
   }
 
-  > tr {
+  > tr:not(:first-child) {
     border-radius: 1rem;
     background: white;
     padding: 1.5rem;
     margin: 0.5rem 0;
+    box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.07), 0 2px 4px hsla(0, 0%, 0%, 0.05);
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.02);
+
+      .button-component.-delete {
+        color: #D76061;
+      }
+    }
   }
 
   > tr > td {
@@ -66,6 +80,7 @@
   > tr > td.select {
     padding: 0;
     align-items: center;
+    cursor: pointer;
   }
 
   > tr > td:not(.select) {
