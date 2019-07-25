@@ -6,7 +6,7 @@
 
   > * {
     display: grid;
-    grid-template-columns: auto 256px 192px 192px 1fr;
+    grid-template-columns: auto minmax(320px, 1fr) minmax(192px, 1fr) minmax(192px, 1fr) 1fr;
   }
 
   > th > td {
