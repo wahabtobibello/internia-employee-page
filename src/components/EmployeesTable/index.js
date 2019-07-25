@@ -42,7 +42,7 @@ function EmployeesTable() {
         </td>
         <td className="manage">
           <Button icon><MdModeEdit /></Button>
-          <Button icon><MdDelete /></Button>
+          <Button icon  className="-delete"><MdDelete /></Button>
         </td>
       </tr>
       <tr>
@@ -62,7 +62,7 @@ function EmployeesTable() {
         </td>
         <td className="manage">
           <Button icon><MdModeEdit /></Button>
-          <Button icon><MdDelete /></Button>
+          <Button icon  className="-delete"><MdDelete /></Button>
         </td>
       </tr>
       <tr>
@@ -82,7 +82,7 @@ function EmployeesTable() {
         </td>
         <td className="manage">
           <Button icon><MdModeEdit /></Button>
-          <Button icon><MdDelete /></Button>
+          <Button icon className="-delete"><MdDelete /></Button>
         </td>
       </tr>
     </table>
