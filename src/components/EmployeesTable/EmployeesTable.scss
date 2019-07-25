@@ -1,6 +1,6 @@
 @import "../../variables";
 
-.employees-table {
+.employees-table > tbody {
   display: flex;
   flex-direction: column;
 
@@ -9,10 +9,14 @@
     grid-template-columns: auto minmax(320px, 1fr) minmax(192px, 1fr) minmax(192px, 1fr) 1fr;
   }
 
-  > th > td {
+  > tr > th {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    &:not(:last-child) {
+      cursor: pointer;
+    }
 
     .name {
       text-transform: uppercase;
@@ -36,19 +40,19 @@
     }
   }
 
-  > th {
+  > tr:first-child {
     padding: 0 1.5rem;
   }
 
-  > th > td.employee {
+  > tr > th.employee {
     margin-left: calc(48px + 2.5rem);
   }
 
-  > th > td ~ td:not(.employee) {
+  > tr > th ~ th:not(.employee) {
     margin-left: 1.5rem;
   }
 
-  > tr {
+  > tr:not(:first-child) {
     border-radius: 1rem;
     background: white;
     padding: 1.5rem;
@@ -76,6 +80,7 @@
   > tr > td.select {
     padding: 0;
     align-items: center;
+    cursor: pointer;
   }
 
   > tr > td:not(.select) {
