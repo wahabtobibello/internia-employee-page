@@ -66,58 +66,60 @@ function EmployeesTable() {
 
   return (
     <table className="employees-table">
-      <th>
-        <td className="select">
-          <input
-            type="checkbox"
-            checked={allSelected === listLengthRef.current}
-            onChange={selectAllCb}
-          />
-        </td>
-        <td className="employee">
-          <span className="name">Employee</span>
-          <span className="order-icon -up"><IoIosArrowRoundUp className="order-icon -up" /></span>
-        </td>
-        <td className="salary">
-          <span className="name">Salary</span>
-          <span className="order-icon -up"><IoIosArrowRoundUp className="order-icon -up" /></span>
-        </td>
-        <td className="status">
-          <span className="name">Status</span>
-          <span className="order-icon -up"><IoIosArrowRoundUp className="order-icon -up" /></span>
-        </td>
-        <td className="manage">
-          <span className="name">Manage</span>
-        </td>
-      </th>
-      {employees.map((employee, index) => (
-        <tr key={employee.id}>
-          <td className="select">
+      <tbody>
+        <tr>
+          <th className="select">
             <input
               type="checkbox"
-              checked={selectedEmployees[employee.id]}
-              onChange={selectOne(employee.id, selectedEmployees[employee.id])}
+              checked={allSelected === listLengthRef.current}
+              onChange={selectAllCb}
             />
-          </td>
-          <td className="employee">
-            <img src={`http://lorempixel.com/100/100/people/${index + 1}`} alt="Employee" />
-            <span className="name">{employee.name}</span>
-            <span className="designation">{employee.designation}</span>
-          </td>
-          <td className="salary">
-            <span className="salary">{employee.salary}</span>
-            <span className="type">{employee.job_type}</span>
-          </td>
-          <td className="status">
-            <span className="status">{employee.status}</span>
-            <span className="period">{employee.work_duration}</span>
-          </td>
-          <td className="manage">
-            <Button icon><MdModeEdit /></Button>
-            <Button icon className="-delete"><MdDelete /></Button>
-          </td>
+          </th>
+          <th className="employee">
+            <span className="name">Employee</span>
+            <span className="order-icon -up"><IoIosArrowRoundUp className="order-icon -up" /></span>
+          </th>
+          <th className="salary">
+            <span className="name">Salary</span>
+            <span className="order-icon -up"><IoIosArrowRoundUp className="order-icon -up" /></span>
+          </th>
+          <th className="status">
+            <span className="name">Status</span>
+            <span className="order-icon -up"><IoIosArrowRoundUp className="order-icon -up" /></span>
+          </th>
+          <th className="manage">
+            <span className="name">Manage</span>
+          </th>
         </tr>
-      ))}
+        {employees.map((employee, index) => (
+          <tr key={employee.id}>
+            <td className="select">
+              <input
+                type="checkbox"
+                checked={selectedEmployees[employee.id]}
+                onChange={selectOne(employee.id, selectedEmployees[employee.id])}
+              />
+            </td>
+            <td className="employee">
+              <img src={`http://lorempixel.com/100/100/people/${index + 1}`} alt="Employee" />
+              <span className="name">{employee.name}</span>
+              <span className="designation">{employee.designation}</span>
+            </td>
+            <td className="salary">
+              <span className="salary">{employee.salary}</span>
+              <span className="type">{employee.job_type}</span>
+            </td>
+            <td className="status">
+              <span className="status">{employee.status}</span>
+              <span className="period">{employee.work_duration}</span>
+            </td>
+            <td className="manage">
+              <Button icon><MdModeEdit /></Button>
+              <Button icon className="-delete"><MdDelete /></Button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
     </table>
   );
 }
