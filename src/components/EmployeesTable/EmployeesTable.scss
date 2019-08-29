@@ -6,7 +6,7 @@
 
   > * {
     display: grid;
-    grid-template-columns: auto minmax(384px, 2fr) minmax(192px, 1fr) minmax(192px, 1fr) auto;
+    grid-template-columns: auto minmax(320px, 2fr) minmax(160px, 1fr) minmax(160px, 1fr) auto;
   }
 
   > tr > th {
